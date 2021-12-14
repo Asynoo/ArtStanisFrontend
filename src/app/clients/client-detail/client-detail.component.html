@@ -1,0 +1,8 @@
+<div class="card" style="width: 18rem; margin: 15px">
+  <img class="card-img-top" src="https://www.vitacost.com/images/modules/icon_new_products.png"  alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Product details</h5>
+    <p class="card-text"> <p>Id: {{client.id}}</p> Name:  <p>{{client.name}}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteClient(client.id)" style="margin: 15px">Delete</button>
+    <button type="button" class="btn btn-dark" routerLink="/edit/{{client.id}}">Edit</button>  </div>
+</div>
