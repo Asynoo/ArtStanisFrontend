@@ -1,24 +1,25 @@
-.topnav {
-  background-color: #f96c00;
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
+  background-color: #f96c00;
 }
 
-.topnav a {
+li {
   float: left;
-  color: #f2f2f2;
+}
+
+li a {
+  display: block;
+  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
-  font-family: Arial;
 }
 
-.topnav a:hover {
+li a:hover:not(.active) {
   background-color: #b24d00;
-  color: white;
 }
 
-.topnav a.active {
-  background-color: #f96c00;
-  color: white;
-}
