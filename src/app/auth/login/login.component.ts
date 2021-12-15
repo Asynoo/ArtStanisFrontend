@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.minLength(2)
+          Validators.minLength(5)
         ]
       ),
       password: new FormControl(
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
           console.log(token);
           if(token && token.token) {
             localStorage.setItem('token', token.token);
-            this.router.navigateByUrl('/products');
+            this.router.navigateByUrl('/clients');
           }
           else {
             console.log('login failed')
