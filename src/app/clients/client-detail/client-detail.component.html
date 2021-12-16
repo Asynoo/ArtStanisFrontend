@@ -1,8 +1,14 @@
-<div class="card" style="width: 18rem; margin: 15px">
-  <img class="card-img-top" src="https://www.vitacost.com/images/modules/icon_new_products.png"  alt="Card image cap">
+<div class="card" style=" margin: 15px">
   <div class="card-body">
     <h5 class="card-title">Product details</h5>
-    <p class="card-text"> <p>Id: {{client.id}}</p> Name:  <p>{{client.name}}</p>
+    <p class="card-text"> <p>
+    Id: {{client.id}}</p>
+    Name:  <p>{{client.name}}</p>
+    Address:  <p>{{client.address}}</p>
+    Apply Date:  <p>{{client.applyDate}}</p>
+    Country:  <p>{{client.country}}</p>
+    Notes:  <p>{{client.notes}}</p>
+    Priority:  <p>{{client.priority}}</p>
     <button type="button" class="btn btn-danger" (click)="deleteClient(client.id)" style="margin: 15px">Delete</button>
     <button type="button" class="btn btn-dark" routerLink="/edit/{{client.id}}">Edit</button>  </div>
 </div>
