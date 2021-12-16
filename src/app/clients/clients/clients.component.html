@@ -2,7 +2,7 @@
 <ul class="list-group" *ngIf="clients$ | async as clients">
   <li class="list-group-item" *ngFor="let client of clients">
     <a routerLink="/detail/{{client.id}}" >
-      <span > Id: {{client.id}}</span> Name: {{client.name}}
+      {{client.name}}
     </a>
   </li>
 </ul>

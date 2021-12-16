@@ -23,11 +23,11 @@ export class ClientEditComponent implements OnInit {
 
   saveClient(client: ClientDto) {
     if (!client.id){
-      this._clientsService.create(client).subscribe(client => console.log('WE CREATED STUFF'));
+      this._clientsService.create(client).subscribe(client => console.log('Client Successfully Created'));
       this.goBack();
     }
     else {
-      this._clientsService.edit(client.id, client).subscribe(client => console.log('WE UPDAETD STUFF'))
+      this._clientsService.edit(client.id, client).subscribe(client => console.log('Client Successfully Updated'))
       this.goBack();
     }
   }
