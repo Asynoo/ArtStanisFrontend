@@ -10,7 +10,7 @@ import {Location} from '@angular/common'
   styleUrls: ['./client-edit.component.scss']
 })
 export class ClientEditComponent implements OnInit {
-  @Input() client: ClientDto = {id: 0, name: '', address: '', applyDate: '', country: '', notes: '', priority: 0 };
+  client: ClientDto = {id: 0, name: '', address: {id: 0, city: 'BinLadenBjerg', country: {id: 1, countryName: 'Afghanistan', countryCode: 'AF'}, houseNumber: 0, postalCode: 0, street: ''}, applyDate: new Date(), notes: '', priority: 0 };
 
   constructor(private _clientsService: ClientsService, private route: ActivatedRoute,
               private location: Location) { }
@@ -21,13 +21,13 @@ export class ClientEditComponent implements OnInit {
       this._clientsService.get(id).subscribe(client => this.client = client);
   }
 
-  saveClient(client: ClientDto) {
-    if (!client.id){
-      this._clientsService.create(client).subscribe(client => console.log('Client Successfully Created'));
+  saveClient() {
+    if (!this.client.id){
+      this._clientsService.create(this.client).subscribe(client => console.log('Client Successfully Created'));
       this.goBack();
     }
     else {
-      this._clientsService.edit(client.id, client).subscribe(client => console.log('Client Successfully Updated'))
+      this._clientsService.edit(this.client.id, this.client).subscribe(client => console.log('Client Successfully Updated'))
       this.goBack();
     }
   }

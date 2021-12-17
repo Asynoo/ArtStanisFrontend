@@ -11,11 +11,22 @@ import {Location} from '@angular/common';
 })
 export class ClientsComponent implements OnInit {
   clients$: Observable<ClientDto[]> | undefined;
+  page: number = 1;
 
   constructor(private _clientsService: ClientsService, private location: Location) { }
 
   ngOnInit(): void {
-    this.clients$ = this._clientsService.getAll();
+    this.clients$ = this._clientsService.getAll(50, this.page);
+  }
+
+  getNextPage() {
+    this.page = this.page + 1
+    this.clients$ = this._clientsService.getAll(50, this.page);
+  }
+
+  getPreviousPage() {
+    this.page = this.page - 1
+    this.clients$ = this._clientsService.getAll(50, this.page);
   }
 
   goBack() {
