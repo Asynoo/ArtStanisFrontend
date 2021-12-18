@@ -3,15 +3,23 @@
   <thead>
   <tr>
     <th scope="col">#</th>
+    <th scope="col">Priority</th>
     <th scope="col">Name</th>
-    <th scope="col"></th>
+    <th scope="col">Email</th>
+    <th scope="col">Address</th>
+    <th scope="col">City</th>
+    <th scope="col">Country</th>
   </tr>
   </thead>
   <tbody *ngIf="clients$ | async as clients">
   <tr *ngFor="let client of clients" routerLink="/detail/{{client.id}}" >
     <th scope="row">{{client.id}}</th>
+    <td>{{client.priority}}</td>
     <td>{{client.name}}</td>
-    <td>{{client.address.street + " " + client.address.houseNumber}}</td>
+    <td>{{client.email}}</td>
+    <td>{{client.address.street + " " + client.address.houseNumber + ", " + client.address.postalCode}}</td>
+    <td>{{client.address.city}}</td>
+    <td>{{client.address.country.countryName}}</td>
   </tr>
   </tbody>
 </table>

@@ -10,7 +10,7 @@ import {Location} from '@angular/common'
   styleUrls: ['./client-edit.component.scss']
 })
 export class ClientEditComponent implements OnInit {
-  client: ClientDto = {id: 0, name: '', address: {id: 0, city: 'BinLadenBjerg', country: {id: 1, countryName: 'Afghanistan', countryCode: 'AF'}, houseNumber: 0, postalCode: 0, street: ''}, applyDate: new Date(), notes: '', priority: 0 };
+  client: ClientDto = {id: 0, name: '',email: '',  address: {id: 0, city: '', country: {id: 1, countryName: '', countryCode: ''}, houseNumber: 0, postalCode: 0, street: ''}, applyDate: new Date(), notes: '', priority: 0 };
 
   constructor(private _clientsService: ClientsService, private route: ActivatedRoute,
               private location: Location) { }

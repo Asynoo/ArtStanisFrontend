@@ -1,13 +1,12 @@
 <div class="card" style=" margin: 15px">
   <div class="card-body">
     <h5 class="card-title">Product details</h5>
-    <p class="card-text"> <p>
     Name:  <p>{{client.name}}</p>
-    Address:  <p>{{client.address.street}}</p>
-    Apply Date:  <p>{{client.applyDate | date:'longDate'}}</p>
-    Country:  <p>{{client.address.country.countryName}}</p>
-    Notes:  <p>{{client.notes}}</p>
+    Email:  <p>{{client.email}}</p>
+    Address:  <p>{{client.address.street}} {{client.address.houseNumber}}, {{client.address.postalCode}} {{client.address.city}}, {{client.address.country.countryName}}</p>
     Priority:  <p>{{client.priority}}</p>
+    Apply Date:  <p>{{client.applyDate | date:'longDate'}}</p>
+    Notes:  <p>{{client.notes}}</p>
     <button type="button" class="btn btn-danger" (click)="deleteClient(client.id)" style="margin: 15px">Delete</button>
     <button type="button" class="btn btn-dark" routerLink="/edit/{{client.id}}">Edit</button>  </div>
 </div>

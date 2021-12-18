@@ -10,7 +10,7 @@ import {Location} from '@angular/common';
   styleUrls: ['./client-detail.component.scss']
 })
 export class ClientDetailComponent implements OnInit {
-  client: ClientDto = {id: 0, name: '', address: {id: 0, city: 'BinLadenRup', country: {id: 0, countryName: '', countryCode: ''}, houseNumber: 0, postalCode: 0, street: ''}, applyDate: new Date(), notes: '', priority: 0 };
+  client: ClientDto = {id: 0, name: '',email: '', address: {id: 0, city: '', country: {id: 0, countryName: '', countryCode: ''}, houseNumber: 0, postalCode: 0, street: ''}, applyDate: new Date(), notes: '', priority: 0 };
 
   constructor(private _productsService: ClientsService, private route: ActivatedRoute,
               private location: Location) { }
