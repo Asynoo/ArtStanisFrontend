@@ -3,6 +3,7 @@ import {ClientsService} from '../shared/clients.service';
 import {Observable} from 'rxjs';
 import {ClientDto} from "../shared/client.dto";
 import {Location} from '@angular/common';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-clients',
@@ -16,7 +17,7 @@ export class ClientsComponent implements OnInit {
   constructor(private _clientsService: ClientsService, private location: Location) { }
 
   ngOnInit(): void {
-    this.clients$ = this._clientsService.getAll(50, this.page);
+    this._clientsService.getAll(50, this.page).subscribe(x => this.clients$ = of(x));
   }
 
   getNextPage() {

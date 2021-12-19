@@ -1,4 +1,5 @@
-<div class="card" style=" margin: 15px">
+<div class="container">
+<div class="card w-50" >
   <div class="card-body">
     <h5 class="card-title">Product details</h5>
     Name:  <p>{{client.name}}</p>
@@ -9,4 +10,21 @@
     Notes:  <p>{{client.notes}}</p>
     <button type="button" class="btn btn-danger" (click)="deleteClient(client.id)" style="margin: 15px">Delete</button>
     <button type="button" class="btn btn-dark" routerLink="/edit/{{client.id}}">Edit</button>  </div>
+</div>
+<google-map
+  height="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+>
+  <map-marker
+    #markerElem
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  >
+  </map-marker>
+</google-map>
 </div>

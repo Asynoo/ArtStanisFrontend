@@ -2,7 +2,6 @@
 <table class="table table-striped table-hover">
   <thead>
   <tr>
-    <th scope="col">#</th>
     <th scope="col">Priority</th>
     <th scope="col">Name</th>
     <th scope="col">Email</th>
@@ -12,9 +11,9 @@
   </tr>
   </thead>
   <tbody *ngIf="clients$ | async as clients">
-  <tr *ngFor="let client of clients" routerLink="/detail/{{client.id}}" >
-    <th scope="row">{{client.id}}</th>
-    <td>{{client.priority}}</td>
+  <tr *ngFor="let client of clients" routerLink="/detail/{{client.id}}"
+      [ngClass]="client.priority === 1 ? 'background-green' : client.priority === 2 ? 'background-yellow' : 'background-red'">
+    <td >{{client.priority}}</td>
     <td>{{client.name}}</td>
     <td>{{client.email}}</td>
     <td>{{client.address.street + " " + client.address.houseNumber + ", " + client.address.postalCode}}</td>
@@ -23,9 +22,11 @@
   </tr>
   </tbody>
 </table>
-<p style="padding-left: 50px">
+
+<!-- For future implementation whenever pagination is needed -->
+<!--<p style="padding-left: 50px">
   Page Number: {{page}}
-</p>
-<button class="btn btn-dark paddingBtn" (click)="getPreviousPage()">Last page</button>
-<button class="btn btn-dark paddingBtn" (click)="getNextPage()">Next page</button>
+</p>-->
+<!--<button class="btn btn-dark paddingBtn" (click)="getPreviousPage()">Last page</button>
+<button class="btn btn-dark paddingBtn" (click)="getNextPage()">Next page</button>-->
 <button class="btn btn-dark paddingBtn" routerLink="/edit">Create</button>

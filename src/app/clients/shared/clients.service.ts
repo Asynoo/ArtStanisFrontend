@@ -31,7 +31,7 @@ export class ClientsService {
     return this._http.post<ClientDto>(environment.api + `/api/Client`, client);
   }
 
-  edit(id: number, client: ClientDto): Observable<ClientDto> {
-    return this._http.put<ClientDto>(environment.api + `/api/Client/${id}`, client);
+  edit(client: ClientDto): Observable<ClientDto> {
+    return this._http.put<ClientDto>(environment.api + `/api/Client`, client);
   }
 }

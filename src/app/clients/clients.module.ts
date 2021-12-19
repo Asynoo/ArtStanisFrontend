@@ -6,7 +6,8 @@ import { ClientsComponent } from './clients/clients.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ClientDetailComponent } from './client-detail/client-detail.component';
 import { ClientEditComponent } from './client-edit/client-edit.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {GoogleMapsModule} from "@angular/google-maps";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import {FormsModule} from "@angular/forms";
     CommonModule,
     ClientsRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    GoogleMapsModule,
+    ReactiveFormsModule
   ]
 })
 export class ClientsModule { }

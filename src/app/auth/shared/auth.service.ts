@@ -5,7 +5,7 @@ import {BehaviorSubject, Observable, of} from 'rxjs';
 import {TokenDto} from './token.dto';
 import {environment} from '../../../environments/environment';
 import {take, tap} from 'rxjs/operators';
-import {AuthUserDto} from './auth-user.dto';
+import {Router} from "@angular/router";
 
 const jwtToken = 'jwtToken';
 
@@ -14,7 +14,7 @@ const jwtToken = 'jwtToken';
 })
 export class AuthService {
   isLoggedIn$ = new BehaviorSubject<string | null>(this.getToken());
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private router: Router) { }
 
   login(loginDto: LoginDto): Observable<TokenDto> {
     return this._http
@@ -38,6 +38,7 @@ export class AuthService {
   logout(): Observable<boolean> {
     localStorage.removeItem(jwtToken);
     this.isLoggedIn$.next(null);
+    this.router.navigateByUrl('auth/login');
     return of(true).pipe(take(1));
   }
 }

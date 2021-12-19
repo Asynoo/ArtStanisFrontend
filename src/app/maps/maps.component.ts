@@ -14,17 +14,14 @@ export class MapsComponent implements OnInit {
   clients$: Observable<ClientDto[]> | undefined;
 
   constructor(private _clientsService: ClientsService) { }
-
-
   @ViewChild(GoogleMap, {static: false}) map: GoogleMap | undefined
-  @ViewChild(MapInfoWindow, {static: false}) info: MapInfoWindow | undefined
 
   zoom = 5  // @ts-ignore
   center: google.maps.LatLngLiteral
   options: google.maps.MapOptions = {
     zoomControl: false,
-    scrollwheel: false,
-    disableDoubleClickZoom: true,
+    scrollwheel: true,
+    disableDoubleClickZoom: false,
     mapTypeId: 'hybrid',
     maxZoom: 150,
     minZoom: 1,
@@ -83,5 +80,4 @@ export class MapsComponent implements OnInit {
       });
     });
   };
-
 }
