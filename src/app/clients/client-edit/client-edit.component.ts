@@ -26,21 +26,52 @@ export class ClientEditComponent implements OnInit {
       name: new FormControl(
         '',
         [
-          Validators.required,
-          Validators.minLength(2)
+          Validators.required
         ]
       ),
       email: new FormControl(
-        '',
-        Validators.required
+        '',[
+          Validators.required
+        ]
       ),
-      street: new FormControl(),
-      houseNumber: new FormControl(),
-      postalCode: new FormControl(),
-      city: new FormControl(),
-      country: new FormControl(),
-      priority: new FormControl(),
-      notes: new FormControl(),
+      street: new FormControl(
+        '',[
+          Validators.required
+        ]
+      ),
+      houseNumber: new FormControl(
+        '',[
+          Validators.required
+        ]
+      ),
+      postalCode: new FormControl(
+        '',[
+          Validators.required,
+          Validators.minLength(4)
+        ]
+      ),
+      city: new FormControl(
+        '',[
+          Validators.required
+        ]
+      ),
+      country: new FormControl(
+        '',[
+          Validators.required
+        ]
+      ),
+      priority: new FormControl(
+        '',[
+          Validators.required,
+          Validators.minLength(1),
+          Validators.maxLength(1)
+        ]
+      ),
+      notes: new FormControl(
+        '',[
+          Validators.required
+        ]
+      ),
     })}
 
 

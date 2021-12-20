@@ -19,7 +19,7 @@ export class ChartsComponent implements OnInit {
 
   constructor(private _clientsService: ClientsService) { }
 
-  data: [{name: string, value: number}] = [{name: '', value: 0}];
+  data: [{name: string, value: number}] = [{name: 'Countries', value: 0}];
 
   ngOnInit(): void {
     this.clients$ = this._clientsService.getAll(50, 1);
