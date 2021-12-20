@@ -1,0 +1,23 @@
+<google-map
+  height="80vh"
+  width="100vw"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+>
+  <map-marker
+    #markerElem
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  >
+  </map-marker>
+
+  <map-info-window>{{ infoContent }}</map-info-window>
+</google-map>
+
+<button style="margin: 20px" class="btn btn-dark" (click)="zoomOut()">Zoom out</button>
+<button style="margin: 20px" class="btn btn-dark" (click)="zoomIn()">Zoom in</button>
+

@@ -1,0 +1,30 @@
+<div class="container">
+<div class="card w-50" >
+  <div class="card-body">
+    <h5 class="card-title">Client Details</h5>
+    Name:  <p>{{client.name}}</p>
+    Email:  <p>{{client.email}}</p>
+    Address:  <p>{{client.address.street}} {{client.address.houseNumber}}, {{client.address.postalCode}} {{client.address.city}}, {{client.address.country.countryName}}</p>
+    Priority:  <p>{{client.priority}}</p>
+    Apply Date:  <p>{{client.applyDate | date:'longDate'}}</p>
+    Notes:  <p>{{client.notes}}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteClient(client.id)" style="margin: 15px">Delete</button>
+    <button type="button" class="btn btn-dark" routerLink="/edit/{{client.id}}">Edit</button>  </div>
+</div>
+<google-map
+  height="100%"
+  [zoom]="zoom"
+  [center]="center"
+  [options]="options"
+>
+  <map-marker
+    #markerElem
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [label]="marker.label"
+    [title]="marker.title"
+    [options]="marker.options"
+  >
+  </map-marker>
+</google-map>
+</div>
