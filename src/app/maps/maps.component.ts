@@ -22,7 +22,7 @@ export class MapsComponent implements OnInit {
     zoomControl: false,
     scrollwheel: true,
     disableDoubleClickZoom: false,
-    mapTypeId: 'hybrid',
+    mapTypeId: 'roadmap',
     maxZoom: 150,
     minZoom: 1,
   }

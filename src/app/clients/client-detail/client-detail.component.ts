@@ -17,7 +17,7 @@ export class ClientDetailComponent implements OnInit {
     zoomControl: false,
     scrollwheel: true,
     disableDoubleClickZoom: false,
-    mapTypeId: 'hybrid',
+    mapTypeId: 'roadmap',
     maxZoom: 150,
     minZoom: 1,
   }
@@ -32,7 +32,6 @@ export class ClientDetailComponent implements OnInit {
       this.client = client
       this.getAddress(this.client.address.street + " " + this.client.address.houseNumber + " " + this.client.address.postalCode)
     });
-
   }
 
   deleteClient(id: number) {
