@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {ClientDto} from "../clients/shared/client.dto";
 import {ClientsService} from "../clients/shared/clients.service";
 import {Location} from "@angular/common";
+import {timeout} from "rxjs/operators";
 
 @Component({
   selector: 'app-maps',
@@ -41,7 +42,8 @@ export class MapsComponent implements OnInit {
     })
 
     this.clients$.forEach(x => {
-      x.forEach(y => this.getAddress(y.address.street + " " + y.address.houseNumber + " " + y.address.postalCode))
+      // @ts-ignore
+      x.forEach(y => timeout(this.getAddress(y.address.street + " " + y.address.houseNumber + " " + y.address.postalCode)))
     })
   }
 
